@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {Container, Typography, Button, Grid} from '@material-ui/core'
 import useStyles from './styles'
 import CartItem from './CartItem/CartItem';
-const Cart = ({cart, handleUpdateCart, handleRemoveFromCart, handleEmptyCart}) => {
+const Cart = ({cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart}) => {
     const isEmpty= cart.line_items&&!cart.line_items.length;
     const classes = useStyles();
 
@@ -18,7 +18,7 @@ const Cart = ({cart, handleUpdateCart, handleRemoveFromCart, handleEmptyCart}) =
          <Grid container spacing={3} >
               {cart.line_items&&cart.line_items.map((item)=>( 
                    <Grid items xs={12} sm={4} key={item.id} >
-                    <CartItem item={item} onUpdateCartQty={handleUpdateCart} onRemoveFromCart={handleRemoveFromCart} />
+                    <CartItem item={item} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} />
                    </Grid>
               ))}
          </Grid>
