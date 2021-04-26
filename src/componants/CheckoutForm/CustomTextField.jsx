@@ -10,6 +10,7 @@ const FormInput = ({name, label}) => {
               as={TextField}
               control={control}
               fullWidth
+              defaultValue=""
               name={name}
               label={label}
               required
