@@ -26,9 +26,9 @@ const AdressForm = ({ checkoutToken, next }) => {
     id: code,
     label: name,
   }));
-  const subdivisions = Object.entries(
-    shippingSubdivisions
-  ).map(([code, name]) => ({ id: code, label: name }));
+  const subdivisions = Object.entries(shippingSubdivisions).map(
+    ([code, name]) => ({ id: code, label: name })
+  );
 
   const options = shippingOptions.map((sO) => ({
     id: sO.id,
@@ -90,7 +90,16 @@ const AdressForm = ({ checkoutToken, next }) => {
         Shippping Adress
       </Typography>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
+        <form
+          onSubmit={methods.handleSubmit((data) =>
+            next({
+              ...data,
+              shippingCountry,
+              shippingSubdivision,
+              shippingOption,
+            })
+          )}
+        >
           <Grid container spacing={3}>
             <FormInput name="firstName" label="First name" />
             <FormInput name="lastName" label="Last name" />
